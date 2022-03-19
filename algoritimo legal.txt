@@ -1,0 +1,78 @@
+function RunLength(str) { 
+  let newStr = ''
+  let cont = 0
+  let char = ''
+  
+
+  for(let i = 0; i < str.length; i++){
+    char = str[i]  
+
+    for(let j = 0; j < str.length; j++){
+      if(str[j] === char){
+        cont++         
+      }
+    }
+    while(str.indexOf(char) != -1){
+      str = str.replace(char,'')
+      
+    }
+    newStr += `${cont}${char}`
+    cont = 0 
+  }
+  // code goes here 
+  if(str.length > 0){
+    for(let i = 0; i < str.length; i++){
+      char = str[i]  
+
+      for(let j = 0; j < str.length; j++){
+        if(str[j] === char){
+          cont++         
+        }
+      }
+      while(str.indexOf(char) != -1){
+        str = str.replace(char,'')
+      }
+      newStr += `${cont}${char}`
+      cont = 0 
+    }
+  }
+   
+  return newStr; 
+
+}
+   
+// keep this function call here 
+console.log(RunLength(readline()));
+
+
+
+
+
+
+
+
+
+function LargestFour(arr) { 
+let soma = 0
+let tam = arr.length
+
+arr = arr.sort(function (a, b) {  return a - b;  });
+
+  if(tam <= 4){
+    arr.forEach(ele => {
+      soma += ele
+    })
+    return soma
+  }
+
+  
+  for(let i = 4; i > 0; i--){   
+    soma += arr[tam-i]
+  }
+  // code goes here  
+  return soma; 
+
+}
+   
+// keep this function call here 
+console.log(LargestFour(readline()));
